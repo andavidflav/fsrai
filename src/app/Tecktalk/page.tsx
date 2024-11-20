@@ -1,184 +1,3 @@
-// import { FC } from 'react';
-// import Image from 'next/image'; // For optimized image handling
-
-// const tecktalks: FC = () => {
-//     return (
-//         <div className="new-page">
-//             {/* Banner Section */}
-    
-//             <section className="relative h-[100vh] text-white flex items-center justify-center overflow-hidden">
-//                 <div className="absolute inset-0">
-//                     <Image
-//                         src="/tecktalk.jpg" // Replace with your actual image path
-//                         alt="Tech Talks Banner"
-//                         layout="fill"
-//                         objectFit="cover"
-//                         objectPosition="center"
-//                     />
-//                 </div>
-//                 <div className="relative z-10">
-//                     <h1 className="text-4xl md:text-6xl font-bold">BTU Tech Talks</h1>
-//                     <p className="text-xl mt-4">From Industry experts of Brandenburg State.</p>
-//                 </div>
-//             </section>
-
-//             {/* Slider Section */}
-//             <section className="slider bg-gray-100 py-10">
-//                 <h2 className="text-3xl font-bold text-center mb-6">Event Highlights</h2>
-//                 <div className="slider-container flex overflow-x-auto space-x-6 px-6">
-//                     {/* Replace these images with dynamic data */}
-//                     <div className="slide min-w-[300px] flex-shrink-0">
-//                         <Image src="/digital.jpg" alt="Slide 1" width={300} height={200} className="rounded-lg" />
-//                         {/* <p className="mt-2 text-center">Highlight 1</p> */}
-//                     </div>
-//                     <div className="slide min-w-[300px] flex-shrink-0">
-//                         <Image src="/sample.gif" alt="Slide 2" width={300} height={200} className="rounded-lg" />
-//                         {/* <p className="mt-2 text-center">Highlight 2</p> */}
-//                     </div>
-//                     <div className="slide min-w-[300px] flex-shrink-0">
-//                         <Image src="/schedule.jpg" alt="Slide 3" width={300} height={200} className="rounded-lg" />
-//                         {/* <p className="mt-2 text-center">Highlight 3</p> */}
-//                     </div>
-//                 </div>
-//             </section>
-
-//             {/* Schedule Section */}
-//             <section className="boxed-container my-5">
-//                 <h2 className="text-3xl font-bold mt-10 mb-10 text-white">Event Schedule (Draft)</h2>
-//                 <div className="relative w-full h-auto overflow-hidden flex items-center justify-center">
-//                         <img
-//                             src="./img2.jpg" // Replace with your image path
-//                             alt="Schedule"
-//                             className="object-cover w-[80%] "
-//                         />
-//                 </div>
-//             </section>
-//         </div>
-//     );
-// };
-
-// export default tecktalks;
-
-
-// 'use client';
-
-// import { FC, useState, useEffect } from 'react';
-// import Image from 'next/image'; // For optimized image handling
-
-// const Tecktalks: FC = () => {
-//     const [currentSlide, setCurrentSlide] = useState(0);
-
-//     // Slide images
-//     const slides = [
-//         { src: '/slides.png', alt: 'Slide 1' },
-//         { src: '/slides.png', alt: 'Slide 2' },
-//         { src: '/slides.png', alt: 'Slide 3' }
-//     ];
-
-//     // Auto-slide functionality using setInterval
-//     useEffect(() => {
-//         const interval = setInterval(() => {
-//             setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-//         }, 3000); // Change slide every 3 seconds
-
-//         return () => clearInterval(interval); // Cleanup on component unmount
-//     }, []);
-
-//     return (
-//         <div className="new-page">
-//             {/* Banner Section */}
-//             <section className="relative h-[100vh] text-white flex items-center justify-center overflow-hidden">
-//                 <div className="absolute inset-0">
-//                     <Image
-//                         src="/1.jpg" // Replace with your actual image path
-//                         alt="Tech Talks Banner"
-//                         layout="fill"
-//                         objectFit="cover"
-//                         objectPosition="center"
-//                     />
-//                 </div>
-
-//                 {/* Scroll Down Notification */}
-//                 <div className="absolute bottom-10 left-5 flex items-center justify-center gap-3 text-white">
-//                     <span className="text-2xl font-semibold">Scroll Down</span>
-//                     <svg
-//                         className="w-10 h-10 animate-bounce"
-//                         xmlns="http://www.w3.org/2000/svg"
-//                         fill="none"
-//                         viewBox="0 0 24 24"
-//                         stroke="currentColor"
-//                     >
-//                         <path
-//                             strokeLinecap="round"
-//                             strokeLinejoin="round"
-//                             strokeWidth="2"
-//                             d="M5 15l7 7 7-7"
-//                         />
-//                     </svg>
-//                 </div>
-//             </section>
-
-//             {/* Slider Section */}
-//             <section className="slider bg-gray-100 py-10">
-//                 <h2 className="text-3xl font-bold text-center mb-6">Highlighted Teck Talk</h2>
-//                 <div className="relative mx-auto w-[80%] overflow-hidden"> {/* Center container */}
-//                     <div
-//                         className="flex transition-transform duration-500"
-//                         style={{
-//                             transform: `translateX(-${currentSlide * 100}%)`, // Adjust movement per slide
-//                         }}
-//                     >
-//                         {slides.map((slide, index) => (
-//                             <div
-//                                 key={index}
-//                                 className="slide flex-shrink-0 w-full" // Ensure the slide takes up 100% width of the container
-//                             >
-//                                 <div className="relative w-full h-[500px]"> {/* Fixed height */}
-//                                     <Image
-//                                         src={slide.src}
-//                                         alt={slide.alt}
-//                                         layout="fill"
-//                                         objectFit="cover"
-//                                         className="rounded-lg"
-//                                     />
-//                                 </div>
-//                             </div>
-//                         ))}
-//                     </div>
-
-//                     {/* Navigation buttons */}
-//                     <button
-//                         onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length)}
-//                         className="absolute left-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-black bg-opacity-50 rounded-full"
-//                     >
-//                         &#8592;
-//                     </button>
-//                     <button
-//                         onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)}
-//                         className="absolute right-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-black bg-opacity-50 rounded-full"
-//                     >
-//                         &#8594;
-//                     </button>
-//                 </div>
-//             </section>
-
-//             {/* Schedule Section */}
-//             <section className="boxed-container my-5">
-//                 <h2 className="text-3xl font-bold mt-10 mb-10 text-white">Event Schedule (Draft)</h2>
-//                 <div className="relative w-full h-auto overflow-hidden flex items-center justify-center">
-//                     <img
-//                         src="./tecktalksch.png" // Replace with your image path
-//                         alt="Schedule"
-//                         className="object-cover w-[80%]"
-//                     />
-//                 </div>
-//             </section>
-//         </div>
-//     );
-// };
-
-// export default Tecktalks;
-
 'use client';
 
 import { FC, useState, useEffect } from 'react';
@@ -201,7 +20,6 @@ const Tecktalks: FC = () => {
         { src: '/4.jpg', alt: 'Slide 2' },
         { src: '/3.jpg', alt: 'Slide 3' }
     ];
-    
 
     // Auto-slide functionality using setInterval
     useEffect(() => {
@@ -225,7 +43,6 @@ const Tecktalks: FC = () => {
         { id: 10, src: '/l4.png', alt: 'Logo 4' },
         { id: 11, src: '/l5.png', alt: 'Logo 5' },
         { id: 12, src: '/l6.png', alt: 'Logo 6' },
-        
     ];
 
     return (
@@ -239,6 +56,7 @@ const Tecktalks: FC = () => {
                         layout="fill"
                         objectFit="cover"
                         objectPosition="center"
+                        className="w-full h-full" // Ensure the image covers the section
                     />
                 </div>
 
@@ -261,181 +79,165 @@ const Tecktalks: FC = () => {
                     </svg>
                 </div>
             </section>
-            
+
             {/* Slider Section */}
             <section className="slider bg-gray-400 py-10">
                 <div className="overflow-hidden whitespace-nowrap boxed-container py-8">
-                <h2 className='text-3xl font-bold mb-10 text-white'>Exhibiting Companies (Mockup logos)</h2>
-                <div className="flex animate-marquee justify-center">
-                <Swiper
-                        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-                        spaceBetween={10}
-                        slidesPerView={6}
-                        autoplay={{ delay: 0 }}
-                        loop={true}
-                        speed={1000}
-                        breakpoints={{
-                            0: {
-                                slidesPerView: 3,
-                            },
-                            640: {
-                                slidesPerView: 3,
-                            },
-                            768: {
-                                slidesPerView: 6,
-                            },
-                            1024: {
-                                slidesPerView: 6,
-                            },
+                    <h2 className='text-3xl font-bold mb-10 text-white'>Exhibiting Companies (Mockup logos)</h2>
+                    <div className="flex animate-marquee justify-center">
+                        <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                            spaceBetween={10}
+                            slidesPerView={6}
+                            autoplay={{ delay: 0 }}
+                            loop={true}
+                            speed={1000}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 3, // 3 slides for small screens
+                                },
+                                640: {
+                                    slidesPerView: 3, // 3 slides for tablet screens
+                                },
+                                768: {
+                                    slidesPerView: 6, // 6 slides for medium screens and up
+                                },
+                                1024: {
+                                    slidesPerView: 6, // 6 slides for desktops
+                                },
+                            }}
+                        >
+                            {logos.map(logo => (
+                                <SwiperSlide key={logo.id}>
+                                    <div className="flex items-center justify-center w-42 h-42 mx-2 sm:w-42 sm:h-42">
+                                        <img
+                                            src={logo.src}
+                                            alt={logo.alt}
+                                            className="object-contain w-full h-full border border-gray-600 p-2 rounded-sm"
+                                        />
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                </div>
+            </section>
+
+            {/* Schedule Section */}
+            <section className="relative h-[100vh] text-white flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0">
+                    <Image
+                        src="/5.jpg" // Replace with your actual image path
+                        alt="Tech Talks Banner"
+                        layout="fill"
+                        objectFit="fill"
+                        objectPosition="center"
+                        className="w-full h-full"
+                    />
+                </div>
+            </section>
+
+            {/* Slider Section */}
+            <section className="slider bg-gray-100 py-10 relative">
+                {/* Background GIF */}
+                <div
+                    className="absolute inset-0 bg-cover bg-center opacity-30"
+                    style={{
+                        backgroundImage: 'url(/giphy.gif)', // Update this with your GIF path
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                    }}
+                ></div>
+
+                <h2 className="text-3xl font-bold mb-4 text-cyan-600 text-center ">Highlighted Teck Talks From Industry experts of Brandenburgische State</h2>
+
+                <div className="relative mx-auto pt-10 w-[75%] sm:w-[57%] h-[580px] overflow-hidden">
+                    <div
+                        className="absolute inset-0 bg-cover bg-center opacity-30"
+                        style={{
+                            backgroundImage: 'url(/giphy.gif)', // Update this with your GIF path
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                        }}
+                    ></div>
+
+                    <div
+                        className="flex transition-transform duration-500"
+                        style={{
+                            transform: `translateX(-${currentSlide * 100}%)`, // Adjust movement per slide
                         }}
                     >
-                    {logos.map(logo => (
-                        <SwiperSlide key={logo.id}>
-                            <div key={logo.id} className="flex items-center justify-center w-42 h-42 mx-2 sm:w-42 sm:h-42">
-                                <img src={logo.src} alt={logo.alt} className="object-contain w-full h-full border border-gray-600 p-2 rounded-sm  " />
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                    </Swiper>
-                </div>
-            </div>
-        </section>
+                        {slides.map((slide, index) => {
+                            // Determine the previous, current, and next slides for applying effects
+                            const isPrevious = index === (currentSlide - 1 + slides.length) % slides.length;
+                            const isNext = index === (currentSlide + 1) % slides.length;
+                            const isCurrent = index === currentSlide;
 
-
-            
-        {/* Schedule Section */}
-        <section className="relative h-[100vh] text-white flex items-center justify-center overflow-hidden">
-            <div className="absolute inset-0">
-                <Image
-                    src="/5.jpg" // Replace with your actual image path
-                    alt="Tech Talks Banner"
-                    layout="fill"
-                    objectFit="fill"
-                    objectPosition="center"
-                />
-            </div>
-        </section>
-
-        {/* Slider Section */}
-        <section className="slider bg-gray-100 py-10 relative">
-    {/* Background GIF */}
-    <div
-        className="absolute inset-0 bg-cover bg-center opacity-30"
-        style={{
-            backgroundImage: 'url(/giphy.gif)', // Update this with your GIF path
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-        }}
-    ></div>
-    
-    <h2 className="text-3xl font-bold mb-4 text-cyan-600 text-center ">Highlighted Teck Talks From Industry experts of Brandenburgische State</h2>
-
-    <div className="relative mx-auto pt-10 w-[75%] sm:w-[57%] h-[580px] overflow-hidden"> {/* Reduced container width */}
-        <div
-            className="absolute inset-0 bg-cover bg-center opacity-30"
-            style={{
-                backgroundImage: 'url(/giphy.gif)', // Update this with your GIF path
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-            }}
-        ></div>
-
-        <div
-            className="flex transition-transform duration-500"
-            style={{
-                transform: `translateX(-${currentSlide * 100}%)`, // Adjust movement per slide
-            }}
-        >
-            {slides.map((slide, index) => {
-                // Determine the previous, current, and next slides for applying effects
-                const isPrevious = index === (currentSlide - 1 + slides.length) % slides.length;
-                const isNext = index === (currentSlide + 1) % slides.length;
-                const isCurrent = index === currentSlide;
-
-                return (
-                    <div
-                        key={index}
-                        className={`slide flex-shrink-0 w-full 
-                            ${isPrevious || isNext ? 'opacity-50' : 'opacity-100'} 
-                            ${isPrevious || isNext ? 'filter blur-[5px]' : ''}`} // Apply blur and opacity
-                    >
-                        <div className="relative w-full h-[500px] overflow-hidden"> {/* Ensure no border is visible */}
-                            <Image
-                                src={slide.src}
-                                alt={slide.alt}
-                                layout="fill"
-                                objectFit="contain" // Use "cover" to ensure the image fills the container
-                                className="rounded-lg transition-all ease-in-out duration-500" // Smooth transition with rounded corners
-                            />
-                        </div>
+                            return (
+                                <div
+                                    key={index}
+                                    className={`slide flex-shrink-0 w-full 
+                                        ${isPrevious || isNext ? 'opacity-50' : 'opacity-100'} 
+                                        ${isPrevious || isNext ? 'filter blur-[5px]' : ''}`} // Apply blur and opacity
+                                >
+                                    <div className="relative w-full h-[500px] overflow-hidden">
+                                        <Image
+                                            src={slide.src}
+                                            alt={slide.alt}
+                                            layout="fill"
+                                            objectFit="contain"
+                                            className="rounded-lg transition-all ease-in-out duration-500"
+                                        />
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
-                );
-            })}
-        </div>
 
-        {/* Navigation buttons */}
-        <button
-            onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length)}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-black bg-opacity-50 rounded-full"
-        >
-            &#8592;
-        </button>
-        <button
-            onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-black bg-opacity-50 rounded-full"
-        >
-            &#8594;
-        </button>
-    </div>
-</section>
+                    {/* Navigation buttons */}
+                    <button
+                        onClick={() => setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length)}
+                        className="absolute left-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-black bg-opacity-50 rounded-full"
+                    >
+                        &#8592;
+                    </button>
+                    <button
+                        onClick={() => setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)}
+                        className="absolute right-0 top-1/2 transform -translate-y-1/2 p-3 text-white bg-black bg-opacity-50 rounded-full"
+                    >
+                        &#8594;
+                    </button>
+                </div>
+            </section>
 
-
-
-        
-                    
             {/* Contact Section with Grey Background */}
             <section className="slider bg-gray-800 py-10">
                 <div className="boxed-container bg-gray-800">
                     <div className="about-section mt-5 pb-10">
                         <h2 className="text-3xl font-bold mb-4 text-white text-center">Contact Us</h2>
-                        <div className="flex text-white justify-center">
-                            <div className="mb-4 md:mb-0 flex flex-row">
-                                <h3 className="text-xl font-semibold">FSR AI</h3>
-                                <div className="flex space-x-2 ml-4">
-                                    <a href="https://fsr-ai.de" className="text-blue-500">
-                                        <AiOutlineGlobal className="text-2xl text-blue-500" />
-                                    </a>
-                                    <a href="mailto:fsr-ai@b-tu.de" className="text-blue-500">
-                                        <CiMail className="text-2xl text-white" />
-                                    </a>
-                                    <a href="https://www.instagram.com/fsr.ai" target="_blank" className="text-blue-500">
-                                        <FaInstagram className="text-2xl text-pink-600" />
-                                    </a>
-                                </div>
+                        <div className="flex flex-wrap justify-center gap-10">
+                            <div className="contact-box flex justify-center">
+                                <AiOutlineGlobal size={60} color="white" />
+                                <h4 className="font-semibold text-white mt-3">Visit Our Website</h4>
+                                <p className="text-white">example.com</p>
                             </div>
-                            <span className="mx-4">|</span>
-                            <div className="flex">
-                                <h3 className="text-xl font-semibold inline-block">FSR IT</h3>
-                                <div className="flex space-x-2 ml-4">
-                                    <a href="https://fsr-it.de/en" className="text-blue-500">
-                                        <AiOutlineGlobal className="text-2xl text-blue-500" />
-                                    </a>
-                                    <a href="mailto:fsr-it@b-tu.de" className="text-blue-500">
-                                        <CiMail className="text-2xl text-white" />
-                                    </a>
-                                    <a href="https://www.instagram.com/fsr.it/profilecard/?igsh=eW9ud2gycXh3dXph" target="_blank" className="text-blue-500">
-                                        <FaInstagram className="text-2xl text-pink-600" />
-                                    </a>
-                                </div>
+                            <div className="contact-box flex justify-center">
+                                <CiMail size={60} color="white" />
+                                <h4 className="font-semibold text-white mt-3">Mail Us</h4>
+                                <p className="text-white">info@example.com</p>
+                            </div>
+                            <div className="contact-box flex justify-center">
+                                <FaInstagram size={60} color="white" />
+                                <h4 className="font-semibold text-white mt-3">Follow Us</h4>
+                                <p className="text-white">Instagram Handle</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-        
     );
 };
 
